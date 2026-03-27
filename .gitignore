@@ -5,3 +5,23 @@ data/raw/
 
 # Keep processed data
 !data/processed/
+
+# Python: Ignore compiled code
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment: Ignore local virtual environments
+.venv/
+venv/
+env/
+bin/
+
+# Secrets: Ignore sensitive credentials
+.env
+*.secret
+
+# IDEs & System: Ignore tool-specific files
+.vscode/
+.idea/
+.DS_Store

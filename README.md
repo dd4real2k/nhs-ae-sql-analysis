@@ -88,6 +88,15 @@ The model relies most heavily on:
 
 This indicates that A&E demand is driven by __recent activity and recurring seasonal behaviour__
 
+## App and API Layer
+
+This project also includes:
+
+- **FastAPI backend** for serving model predictions
+- **Streamlit dashboard** for interactive analysis, forecasting, and model comparison
+
+This extends the project from notebook-based analysis to an interactive data application.
+
 ## Project Structure
 - `data/raw` → original NHS dataset (ignored in Git)
 - `data/processed/`→ cleaned datasets, predictions, and metrics
@@ -109,7 +118,6 @@ This indicates that A&E demand is driven by __recent activity and recurring seas
 - 05_model_comparison.ipynb
 
 ## Future Improvements
-- Build an interactive dashboard (Streamlit or Power BI)
 - Incorporate external features (weather, population, public holidays)
 - Hyperparameter tuning for improved model performance
 - Deploy model as an API for real-time predictions
