@@ -17,6 +17,9 @@ venv/
 env/
 bin/
 
+notebooks/.ipynb_checkpoints/
+outputs/*.png
+
 # Secrets: Ignore sensitive credentials
 .env
 *.secret
