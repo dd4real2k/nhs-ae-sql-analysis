@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parents[2]))
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 import requests
 import streamlit as st
@@ -10,7 +11,7 @@ from src.config import API_BASE_URL
 
 df = load_model_ready_data()
 
-st.title("Forecast NHS A&E Attendances")
+st.title("Forecast")
 
 st.write("API_BASE_URL:", API_BASE_URL)
 
@@ -38,6 +39,7 @@ if st.button("Generate Forecast"):
         predicted_value = float(result["predicted_attendance"])
 
         st.metric("Predicted Attendance", f"{predicted_value:,.0f}")
+
     except requests.exceptions.ConnectionError:
         st.error("Could not connect to the API. Make sure FastAPI is running.")
     except requests.exceptions.Timeout:
