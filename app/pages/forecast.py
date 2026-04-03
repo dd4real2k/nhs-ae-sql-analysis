@@ -7,12 +7,17 @@ import requests
 import streamlit as st
 from src.app_data import load_model_ready_data, get_organisation_list, filter_organisation
 from src.forecasting import build_prediction_payload
-from src.config import API_BASE_URL
+import src.config as cfg
+
+API_BASE_URL = cfg.API_BASE_URL
 
 df = load_model_ready_data()
 
 st.title("Forecast")
 
+# 🔥 DEBUG (DO NOT SKIP)
+st.write("CONFIG FILE:", cfg.__file__)
+st.write("CONFIG API_BASE_URL:", cfg.API_BASE_URL)
 st.write("API_BASE_URL:", API_BASE_URL)
 
 try:
