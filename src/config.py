@@ -22,10 +22,10 @@ DEFAULT_MODEL_FILENAME = "random_forest_model.joblib"
 # 1. Streamlit secrets
 # 2. Environment variable
 # 3. Local fallback
-API_BASE_URL = STREAMLIT_API_BASE_URL or os.getenv(
-    "API_BASE_URL", "http://127.0.0.1:8000"
-)
-# API_BASE_URL = "https://nhs-ae-sql-analysis.onrender.com"
+# API_BASE_URL = STREAMLIT_API_BASE_URL or os.getenv(
+#    "API_BASE_URL", "http://127.0.0.1:8000"
+#)
+API_BASE_URL = "https://nhs-ae-sql-analysis.onrender.com"
 
 MODEL_FEATURES = [
     "year",
