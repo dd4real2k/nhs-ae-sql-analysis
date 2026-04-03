@@ -15,8 +15,8 @@ df = load_model_ready_data()
 
 st.title("Forecast")
 
-# 🔥 DEBUG (DO NOT SKIP)
 st.write("CONFIG FILE:", cfg.__file__)
+st.write("CONFIG VERSION:", getattr(cfg, "CONFIG_VERSION", "missing"))
 st.write("CONFIG API_BASE_URL:", cfg.API_BASE_URL)
 st.write("API_BASE_URL:", API_BASE_URL)
 
