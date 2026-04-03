@@ -12,8 +12,8 @@ It combines **data engineering, SQL analysis, and machine learning** to explore 
 - Extended the project with a FastAPI backend and Streamlit dashboard
 
 ## Live Demo
-- Streamlit App: []
-- API Docs: []
+- Streamlit App: https://nhs-ae-sql-analysis.streamlit.app
+- API Docs: https://nhs-ae-sql-analysis.onrender.com/docs
 
 ## Dashboard Preview
 
