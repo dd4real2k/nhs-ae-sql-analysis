@@ -12,7 +12,7 @@ It combines **data engineering, SQL analysis, and machine learning** to explore 
 - Extended the project with a FastAPI backend and Streamlit dashboard
 
 ## Live Demo
-- Streamlit App: [View Dashboard](https://nhs-ae-sql-analysis.streamlit.app)
+- Streamlit App: [View Dashboard](https://nhs-ae-forecast.streamlit.app/)
 - API Docs: [View Here](https://nhs-ae-sql-analysis.onrender.com/docs)
 
 ## Dashboard Preview
@@ -189,7 +189,7 @@ pip install -r requirements.txt
   - uvicorn api.main:app --reload
 
 5. Run the Streamlit app:
-  - streamlit run app/dashboard.py
+  - streamlit run app/Dashboard.py
 
 ## Future Improvements
 - Incorporate external features such as weather, population, and public holidays to improve forecasting accuracy
