@@ -25,6 +25,9 @@ DEFAULT_MODEL_FILENAME = "random_forest_model.joblib"
 # API_BASE_URL = STREAMLIT_API_BASE_URL or os.getenv(
 #    "API_BASE_URL", "http://127.0.0.1:8000"
 #)
+
+CONFIG_VERSION = "V2_FORCE_REBUILD"
+
 API_BASE_URL = "https://nhs-ae-sql-analysis.onrender.com"
 
 MODEL_FEATURES = [
