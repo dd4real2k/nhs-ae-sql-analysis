@@ -1,15 +1,30 @@
-# NHS A&E Performance Analysis and Demand Forecasting (2020-2026)
+## NHS A&E Performance Analysis & Forecasting
+End-to-end data project analysing NHS A&E performance (2020–2026), combining SQL analytics, machine learning, and deployment (FastAPI + Streamlit) to model and forecast healthcare demand.
 
-## Overview
+## Why This Project Matters
+
+This project demonstrates the ability to:
+- Analyse real-world healthcare data at scale using SQL and Python
+- Identify operational pressure points in NHS A&E services
+- Build and evaluate forecasting models for demand prediction
+- Deploy data solutions using FastAPI and Streamlit
+- Structure a production-style data project end-to-end
+
+## Project Summary
+
 This project analyses NHS A&E (Accident & Emergency) performance data using multi-year provider-level datasets from **April 2020 to February 2026**.
 
-It combines **data engineering, SQL analysis, and machine learning** to explore demand patterns, waiting-time pressures, and forecast future A&E attendances.
+It combines **data engineering, SQL analytics, and machine learning** to explore demand patterns, waiting-time pressures, and forecast future A&E attendances.
 
-## Project Highlights
-- Analysed NHS A&E provider-level data from April 2020 to February 2026
-- Built SQL queries to investigate demand and waiting-time performance
-- Developed and compared multiple forecasting models
-- Extended the project with a FastAPI backend and Streamlit dashboard
+The project demonstrates how healthcare data can be used to support operational planning and decision-making.
+
+## Key Insights
+
+- High-demand trusts consistently experience higher 4-hour breaches
+- Significant variation exists in 12+ hour delays across organisations
+- Clear seasonal patterns show increased pressure during winter months
+- A small number of NHS organisations handle disproportionately high patient volumes (top 10 account for ~65% of total demand)
+- A&E demand is strongly driven by recent trends and recurring patterns
 
 ## Live Demo
 - Streamlit App: [View Dashboard](https://nhs-ae-forecast.streamlit.app/)
@@ -26,37 +41,37 @@ It combines **data engineering, SQL analysis, and machine learning** to explore 
 ### Model Comparison
 ![Model Comparison](images/model_comparison.png)
 
+## Project Architecture
+```
+Raw NHS Files
+→ Data Cleaning & Standardisation
+→ SQLite Database
+→ SQL Analysis
+→ Feature Engineering
+→ Forecasting Models
+→ FastAPI Backend
+→ Streamlit Dashboard
+```
+
 ## Tools Used
 - Python (Pandas, NumPy)
-- SQLite
-- SQL
+- SQL & SQLite
 - Matplotlib & Seaborn
-- Scikit-learn (Machine Learning)
+- Scikit-learn
 - XGBoost
 - TensorFlow (LSTM)
+- FastAPI
+- Streamlit
 - Jupyter Notebook
 
 ## Skills Demonstrated
 - Data cleaning and preprocessing
-- SQL analysis
+- SQL-based analysis
 - Time-series feature engineering
 - Machine learning model development
 - Model evaluation and comparison
 - API development with FastAPI
-- Dashboard development with Streamlit
-
-## Project Workflow
-1. Multi-file data ingestion and cleaning (2020-2026)
-2. Data standardisation and feature engineering
-3. Storage in SQLite database
-4. SQL-based exploratory analysis
-5. Data visualisation
-6. Time-series feature engineering (lags, rolling statistics)
-7. Predictive modelling for demand forecasting
-8. Model comparison and evaluation
-
-## Project Architecture
-Raw NHS Files → Data Cleaning & Standardisation → SQLite Database → SQL Analysis → Feature Engineering → Forecasting Models → FastAPI Backend → Streamlit Dashboard
+- Data app development (Streamlit)
 
 ## Business Problem
 NHS A&E departments face increasing operational pressure due to:
@@ -65,7 +80,7 @@ NHS A&E departments face increasing operational pressure due to:
 - Long waiting times
 - Resource and capacity constraints
 
-This project investigates these challenges using historical data and extends the analysis into **predictive modelling** to support better planning and decision-making.
+This project investigates these challenges using historical data and extends the analysis into **predictive modelling** to support forward planning and better resource allocation.
 
 ## Key Questions Answered
 - Which organisations handle the highest A&E demand?
@@ -73,13 +88,6 @@ This project investigates these challenges using historical data and extends the
 - Where are long (12+ hour) delays most prevalent?
 - How does performance vary across regions?
 - Can future A&E demand be predicted using historical data?
-
-## Key Insights
-- A small number of organisations handle disproportionately high patient volumes
-- High-demand trusts often also experience higher 4-hour breaches
-- Significant variation exists in 12+ hour waits across organisations
-- Regional differences highlight uneven healthcare pressure distribution
-- A&E demand shows strong dependence on recent historical trends and seasonality
 
 ## Approach
 - Combined multiple NHS monthly datasets (2020–2026) into a unified dataset
@@ -89,19 +97,19 @@ This project investigates these challenges using historical data and extends the
 - Developed time-series features for forecasting
 - Trained and compared multiple machine learning models
 
-# SQL Queries
+## SQL Analysis
 
 This folder contains SQL queries used for the NHS A&E analysis project.
 
-- `01_national_summary.sql` — national totals and row count
-- `02_top_attendance_orgs.sql` — busiest organisations by attendance
-- `03_over4_waits.sql` — worst over-4-hour wait pressure
-- `04_long_waits.sql` — longest 12+ hour waits
-- `05_regional_summary.sql` — regional/parent organisation comparison
-- `06_rankings.sql` — pressure bands and ranking queries
+- `01_national_summary.sql` — national totals and validation
+- `02_top_attendance_orgs.sql` — busiest organisations
+- `03_over4_waits.sql` — 4-hour breach analysis
+- `04_long_waits.sql` — 12+ hour delays
+- `05_regional_summary.sql` — regional comparison
+- `06_rankings.sql` — pressure ranking across organisations
+
 
 ## Predictive Modelling
-
 Multiple models were developed to forecast A&E demand:
 
 - Linear Regression (baseline)
@@ -109,24 +117,10 @@ Multiple models were developed to forecast A&E demand:
 - XGBoost
 - LSTM (deep learning)
 
-## Best Model Summary
-Among the models tested, XGBoost achieved the strongest forecasting performance based on RMSE and R², showing better ability to capture non-linear demand patterns than the baseline and tree-based alternatives.
-
-## Features Used
-- Lag features (1, 3, 6, 12 months)
-- Rolling averages and variability
-- Seasonal encoding (month cyclic features)
-- Operational indicators (admissions, wait times, booked attendances)
-
-## Evaluation Metrics
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-
-Models were compared to identify the best-performing approach for forecasting NHS A&E demand.
+## Best Model
+XGBoost achieved the strongest performance across all evaluation metrics, indicating its effectiveness in capturing non-linear patterns in A&E demand compared to baseline and alternative models.
 
 ## Model Performance
-
 | Model | MAE | RMSE | R² |
 |------|-----:|------:|----:|
 | XGBoost | 416.17 | 701.70 | 0.9945 |
@@ -134,65 +128,78 @@ Models were compared to identify the best-performing approach for forecasting NH
 | Linear Regression | 530.18 | 802.00 | 0.9928 |
 | LSTM | 528.64 | 838.55 | 0.9921 |
 
-## Feature Importance Insights
+## Features Used
+- Lag features (1, 3, 6, 12 months)
+- Rolling averages and variability
+- Seasonal encoding (month cyclic features)
+- Operational indicators (admissions, wait times, booked attendances)
 
-The model relies most heavily on:
+## Key Modelling Insight
+A&E demand is primarily driven by:
+- Recent historical activity (lag features)
+- Short-term trends (rolling averages)
+- Seasonal patterns (monthly cycles)
 
-- Recent attendances (lag features)
-- Rolling averages (short-term trends)
-- Seasonal signals (monthly patterns)
+## Application Layer
+This project includes:
 
-This indicates that A&E demand is driven by **recent activity and recurring seasonal behaviour**
+- **FastAPI backend** for serving predictions
+- **Streamlit dashboard** for interactive analysis and forecasting
 
-## App and API Layer
+This transforms the project from static analysis into a deployable, end-to-end data application.
 
-This project also includes:
-
-- **FastAPI backend** for serving model predictions
-- **Streamlit dashboard** for interactive analysis, forecasting, and model comparison
-
-This extends the project from notebook-based analysis to an interactive data application.
+This architecture reflects a simplified production setup, where models are served via an API and consumed by a frontend application.
 
 ## Project Structure
 - `data/raw/` → original NHS datasets (ignored in Git)
-- `data/processed/` → cleaned datasets, predictions, and metrics
+- `data/processed/` → cleaned datasets and outputs
 - `models/` → saved model artifacts
-- `notebooks/` → analysis and forecasting notebooks
-- `src/` → reusable data processing functions
-- `sql/` → SQL analysis queries
+- `notebooks/` → analysis and modelling
+- `src/` → reusable functions
+- `sql/` → SQL queries
 - `api/` → FastAPI backend
 - `app/` → Streamlit dashboard
-- `nhs_ae_2020_2026.db` → SQLite database
-
-## Data Source
-This project uses NHS England A&E monthly statistics covering April 2020 to February 2026. The data was combined across multiple monthly files, cleaned, standardised, and stored in SQLite for analysis and forecasting.
-
-Source: [NHS England A&E Attendances and Emergency Admissions](https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/ae-attendances-and-emergency-admissions-2025-26/)
-
 
 ## How to Run
-1. Clone the repository
-2. Install dependencies:
 
+You can explore the dashboard directly or run the project locally using the steps below.
+
+### 1. Clone the repository
 ```bash
+git clone https://github.com/dd4real2k/nhs-ae-sql-analysis.git
+cd nhs-ae-sql-analysis
+```
+### 2. Install dependencies
+```
 pip install -r requirements.txt
 ```
-
-3. Run the analysis notebooks in order:
-- `01_data_analysis.ipynb`
-- `02_forecasting_model.ipynb`
-- `03_xgboost_forecasting.ipynb`
-- `04_lstm_forecasting.ipynb`
-- `05_model_comparison.ipynb`
-
-4. Run the FastAPI backend:
-  - uvicorn api.main:app --reload
-
-5. Run the Streamlit app:
-  - streamlit run app/Dashboard.py
+### 3. Run API
+```
+uvicorn api.main:app --reload
+```
+### 4. Run dashboard
+```
+streamlit run app/Dashboard.py
+```
+## What This Project Demonstrates to Employers
+- Ability to work with real NHS datasets
+- Strong SQL and analytical thinking
+- End-to-end ML pipeline development
+- Experience deploying data products
+- Understanding of real-world operational problems
 
 ## Future Improvements
-- Incorporate external features such as weather, population, and public holidays to improve forecasting accuracy
-- Apply more extensive hyperparameter tuning across tree-based and deep learning models
-- Add explainability tooling such as SHAP to better understand feature contribution and model decisions
-- Automate data pipeline updates, model retraining, and forecast generation as new NHS datasets are released
+- Incorporate external features (weather, population, public holidays)
+- Apply deeper hyperparameter tuning
+- Add model explainability (SHAP)
+- Automate data pipeline and retraining
+- Deploy fully on cloud (AWS/GCP)
+
+## Summary
+
+This project demonstrates the ability to take raw healthcare data through the full data lifecycle, from ingestion and analysis to modelling and deployment, in a way that reflects real-world data roles.
+
+## Data Source
+NHS England A&E monthly statistics (April 2020 – February 2026)
+
+Source: [NHS England A&E Attendances and Emergency Admissions](https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/ae-attendances-and-emergency-admissions-2025-26/)
