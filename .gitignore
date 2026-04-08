@@ -8,6 +8,7 @@ data/processed/*
 
 # Python: Ignore compiled code
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 
@@ -23,6 +24,7 @@ outputs/*.png
 # Secrets: Ignore sensitive credentials
 .env
 *.secret
+.streamlit/secrets.toml
 
 # IDEs & System: Ignore tool-specific files
 .vscode/
