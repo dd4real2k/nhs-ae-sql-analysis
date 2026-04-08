@@ -1,10 +1,10 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class PredictionRequest(BaseModel):
-    year: int = Field(..., ge=2000, le=2100)
-    month: int = Field(..., ge=1, le=12)
-    quarter: int = Field(..., ge=1, le=4)
+    year: int
+    month: int
+    quarter: int
     month_sin: float
     month_cos: float
     lag_1: float

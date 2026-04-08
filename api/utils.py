@@ -1,7 +1,8 @@
 from pathlib import Path
 import joblib
 import pandas as pd
-from src.config import PROJECT_ROOT, MODELS_DIR, DEFAULT_MODEL_FILENAME, MODEL_FEATURES
+
+from src.config import MODELS_DIR, DEFAULT_MODEL_FILENAME, MODEL_FEATURES
 
 
 MODEL_PATH = MODELS_DIR / DEFAULT_MODEL_FILENAME
@@ -20,3 +21,11 @@ def prepare_input(data: dict) -> pd.DataFrame:
     if missing:
         raise ValueError(f"Missing input features: {missing}")
     return df[MODEL_FEATURES]
+
+def model_metadata() -> dict:
+    return {
+        "model_path": str(MODEL_PATH),
+        "model_filename": DEFAULT_MODEL_FILENAME,
+        "features_count": len(MODEL_FEATURES),
+        "features": MODEL_FEATURES,
+    }
