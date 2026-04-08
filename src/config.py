@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 MODELS_DIR = Path("models")
-DEFAULT_MODEL_FILENAME = "your_model_name.pkl"
+DEFAULT_MODEL_FILENAME = "random_forest_model.joblib"
 MODEL_FEATURES = ["feature1", "feature2"]
 
 try:
