@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+joblib
+numpy
+scipy
+scikit-learn
+xgboost
+pytest
+matplotlib
+seaborn
