@@ -13,7 +13,7 @@ Accurate A&E demand forecasting helps NHS organisations:
 This project demonstrates how data science can support real healthcare decision-making.
 
 ## Live Demo
-- Streamlit App: [View Dashboard](Coming Soon)
+- Streamlit App: [View Dashboard](https://nhs-ae-forecast.streamlit.app/)
 - API Docs: [View Here](https://nhs-ae-sql-analysis.onrender.com/docs)
 - Health Check: [View Here](https://nhs-ae-sql-analysis.onrender.com/health)
 
